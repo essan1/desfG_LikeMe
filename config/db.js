@@ -1,7 +1,8 @@
 import pkg from 'pg';
+import { loadEnvFile } from 'process';
 const { Pool } = pkg;
-process.LoadEnvFile();
 
+process.loadEnvFile()
 
 const { DB_PASSWORD, DB_USER, DB_DATABASE, DB_HOST } = process.env
 
@@ -15,7 +16,4 @@ allowExitOnIdle: true
 }
 
 
-const db = new Pool(config);
-
-
-export default db;
+export const db = new Pool(config);

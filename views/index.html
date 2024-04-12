@@ -82,12 +82,12 @@
   $(document).ready(function () {
     $("form:first").submit(async (e) => {
       e.preventDefault();
-      let usuario = $("form:first input:first").val();
-      let URL = $("form:first input:last").val();
+      let titulo = $("form:first input:first").val();
+      let img = $("form:first input:last").val();
       let descripcion = $("form:first textarea").val();
       const { data } = await axios.post("/post", {
-        usuario,
-        URL,
+        titulo,
+        img,
         descripcion,
       });
       $("#creado").removeClass("d-none");
@@ -104,11 +104,11 @@
         <div class="card-body  p-0">
           <img
             class="card-img-top"
-            src="${u.url}"
+            src="${u.img}"
             style="width: 100%"
           />
           <div class="p-3">
-            <h4 class="card-title">${u.usuario}</h4>
+            <h4 class="card-title">${u.titulo}</h4>
             <p class="card-text">
               ${u.descripcion}
             </p>
